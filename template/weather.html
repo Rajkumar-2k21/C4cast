@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<title>Weather App</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">		
+	</head>
+
+
+	<body>
+			
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">Tuesday</div>
+								<div class="date">29 Nov</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="location">{{cityname}}</div>
+								<div class="degree">
+									<div class="num">{{temp}}<sup>o</sup>C</div>
+								</div>
+								</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">Humidity</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="degree" name="hmt">{{hmt}}</div>
+							
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">Weather</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="degree" name="weather">{{weather}}</div>
+								
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="sys">Country</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="degree" name="sys">{{sys}}</div>
+								
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="min">Min temp</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="degree" name="min">{{min}}</div>
+							
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="max">Max temp</div>
+							</div> 
+							<div class="forecast-content">
+								<div class="degree" name="max">{{max}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			   <!--Google Map APi Key-->
+			   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+			   <script src="assets/js/gmaps.js"></script>
+			   <script src="assets/js/map-script.js"></script>
+			   <script
+				 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrVud8x3PFL-jig7HpNaw7hXZbo0rl1jo&libraries=places"></script>
+			   <script src="./assets/js/map.js"></script>
+			   <script>
+				 var options = {
+				   types: ["(cities)"]
+				 
+				 };
+		   
+				 var input1 = document.getElementById("pick");
+				 var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+		   			   </script>
+			   <!--End Google Map APi-->
+	</body>
+
+</html>

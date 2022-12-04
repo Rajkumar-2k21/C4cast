@@ -4,7 +4,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background-image: url(./images/banner.jpg);
+  background-image: url(/static/images/banner.jpg);
   background-size: cover;
 }
 

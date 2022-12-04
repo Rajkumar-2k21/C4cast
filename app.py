@@ -1,17 +1,28 @@
+from flask import Flask,render_template,request
 import requests
+app=Flask(__name__,template_folder='template',static_url_path='/static')
 
-api_key='f8db2868af87e9e4244dcbd14f131c24'
+api_key='64b497fbf20a8bd6a9b6758e738bc6a1'
 
-user_input=input("enter the city name:")
+@app.route('/', methods=["GET","POST"])
+def weather():
+   return render_template('index.html')
 
-weather_data=requests.get(
-    f"https://api.openweathermap.org/data/2.5/weather?q={user_input}&appid={api_key}")
+@app.route("/weather", methods =["GET","POST"])
+def home():
+    if request.method=='POST':
+        cityname =request.form['cityname']
+        url='https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='+api_key
+        res=requests.get(url.format(cityname)).json()
+        
+        temp=res['main']['temp']
+        hmt=res['main']['humidity']
+        weather=res['weather'][0]['description']
+        sys=res['sys']['country']
+        min=res['main']['temp_min']
+        max=res['main']['temp_max']
+        
+        return render_template('weather.html',temp=temp,hmt=hmt,cityname=cityname,weather=weather,sys=sys,min=min,max=max)
 
-
-weather=weather_data.json()['weather'][0]['main']
-temp=weather_data.json()['main']['temp']
-hum=weather_data.json()['main']['humidity']
-print("current weather is :",weather)
-print("current temprature is :",temp)
-print("current humadity is :",hum) 
-
+if __name__=='__main__':
+    app.run(debug=True)
