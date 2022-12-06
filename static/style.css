@@ -4,30 +4,16 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background-image: url(/static/images/banner.jpg);
+}
+body{
+  background-image: url(/static/images/banner.png);
   background-size: cover;
 }
 
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+label{
+  color: #ffffff;
+  padding-bottom: 200px;
+   
 }
 
 form input,
@@ -45,8 +31,7 @@ form textarea {
 
 .button,
 form input[type="submit"],
-form button,
-form input[type="reset"] {
+form button {
   border: none;
   background: #009ad8;
   padding: 10px 20px;
@@ -59,6 +44,7 @@ form input[type="reset"] {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 20px;
   *zoom: 1;
 }
 .container:after {
@@ -68,6 +54,7 @@ form input[type="reset"] {
   overflow: hidden;
   height: 0;
 }
+
 
 .hero {
   background-size: cover;
