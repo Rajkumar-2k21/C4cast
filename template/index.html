@@ -15,15 +15,17 @@
 				<div class="container">
 					<div class="label text-primary d-flex justify-content-center">
 						<label><h1>Weather cast</h1></label>
+					<br>
+					
 					</div>
+					<h2 style="color: white;">Hello, {{name}}...</h2>
 					<form action="/weather" method="POST" class="find-location">
 						<input id="pick" name="cityname" type="text" placeholder="Find your location...">
-						<div class="active" style="display: none;">
-							error
-						</div>
+						
 						<input type="submit" value="Find">
 					</form>
-
+					<a href="\"><input type="submit" value="Log out">
+					</a>
 				</div>
 			</div>
 			 <!--Google Map APi Key-->		
