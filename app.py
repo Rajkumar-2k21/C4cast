@@ -60,12 +60,12 @@ def result():
             person["name"] = data.val()[person["uid"]]["name"]
             return redirect(url_for('index'))
         except:
-            return redirect(url_for('login'))
+            return render_template("mailer.html", email = email)
     else:
         if person["is_logged_in"] == True:
             return redirect(url_for('index'))
         else: 
-             return redirect(url_for('login'))
+             return render_template('mailer.html', email = email)
              
 @app.route('/register',methods=["GET","POST"])
 def register():
@@ -87,12 +87,13 @@ def register():
             db.child("users").child(person["uid"]).set(data)
             return redirect(url_for('index'))
         except:
-            return redirect(url_for('signup'))
+            
+            return render_template('regerr.html',email=email)
     else:
         if person["is_logged_in"] == True:
             return redirect(url_for('index'))
         else:
-            return redirect(url_for('signup'))
+            return render_template('regerr.html',email=email)
 
 @app.route("/weather", methods =["GET","POST"])
 def home():
