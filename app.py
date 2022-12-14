@@ -19,7 +19,6 @@ db = firebase.database()
 
 
 app=Flask(__name__,template_folder='template',static_url_path='/static')
-app.secret_key='secret'
 api_key='64b497fbf20a8bd6a9b6758e738bc6a1'
 
 person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
@@ -51,7 +50,7 @@ def result():
         password = result["pass"]
         try:
             user = auth.sign_in_with_email_and_password(email, password)
-            session['user'] = email
+
             global person
             person["is_logged_in"] = True
             person["email"] = user["email"]
@@ -77,7 +76,7 @@ def register():
         try:
             auth.create_user_with_email_and_password(email, password)
             user = auth.sign_in_with_email_and_password(email, password)
-            session['user'] = email
+            
             global person
             person["is_logged_in"] = True
             person["email"] = user["email"]
