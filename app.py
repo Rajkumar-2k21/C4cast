@@ -1,7 +1,9 @@
 import pyrebase
 import requests
+import jwt
 from flask import Flask,render_template,request,redirect,url_for,flash,session
-
+from datetime import datetime,timedelta
+from functools import wraps
 
 config = {
      'apiKey': "AIzaSyAWSn6bz7FnBiLI2rfDsC007YRWuF2lqEw",
@@ -20,7 +22,7 @@ db = firebase.database()
 
 app=Flask(__name__,template_folder='template',static_url_path='/static')
 api_key='64b497fbf20a8bd6a9b6758e738bc6a1'
-
+app.config['SECRET_KEY']='0d8d7872ac624bd492a57587ec040b77'
 person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
 
 
