@@ -1,9 +1,8 @@
 import pyrebase
 import requests
-import jwt
-from flask import Flask,render_template,request,redirect,url_for,flash,session
-from datetime import datetime,timedelta
-from functools import wraps
+
+from flask import Flask,render_template,request,redirect,url_for,session
+
 
 config = {
      'apiKey': "AIzaSyAWSn6bz7FnBiLI2rfDsC007YRWuF2lqEw",
