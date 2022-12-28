@@ -66,6 +66,10 @@ def result():
             return redirect(url_for('index'))
         else: 
              return render_template('mailer.html', email = email)
+@app.route("/logout")
+def logout():
+    
+    return redirect(url_for('first'))             
              
 @app.route('/register',methods=["GET","POST"])
 def register():
@@ -115,10 +119,7 @@ def home():
         
         return render_template('weather.html',temp=temp,hmt=hmt,cityname=cityname,weather=weather,sys=sys,min=min,max=max)
 
-@app.route("/logout")
-def logout():
-    session.pop('user')
-    return redirect('/')
+
 
 if __name__=='__main__':
     app.run(debug=True)
